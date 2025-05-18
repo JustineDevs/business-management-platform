@@ -158,3 +158,135 @@ Design: Clean form with dropdowns and toggles.
 - ├── reports/                    # Generated PDF/Excel reports
 - ├── pom.xml                    # Maven configuration (if used)
 
+# Key Features by Role
+## Admin
+The Admin role has full control over the system, with unrestricted access to all features and data. This role is responsible for system administration and oversight.
+- User Management:
+Create, Update, Delete Users: Admins can add new users, modify existing user details (username, email, role, password), or remove users from the users table.
+
+View All Users: Display a table of all users with details (username, email, role, created_at).
+
+Example UI: Button "Manage Users" opens a panel with a JTable for user data and CRUD buttons.
+
+- Product Management:
+CRUD Operations: Create, read, update, delete products (assuming a products table with columns like product_id, name, price, stock).
+
+Inventory Oversight: View and adjust stock levels, set pricing, or discontinue products.
+
+Example UI: Button "Manage Products" opens a form for adding/editing products and a table for viewing.
+
+- Sales Management:
+View All Sales: Access all sales records (assuming a sales table with sale_id, product_id, quantity, total, date).
+
+Approve/Reject Sales: Authorize large transactions or cancel invalid ones.
+
+Example UI: Button "Manage Sales" shows a JTable of sales with approve/reject options.
+
+- Expense Management:
+Track Expenses: Create, view, update, delete expense records (assuming an expenses table with expense_id, description, amount, date).
+
+Budget Oversight: Approve expense requests and analyze spending trends.
+
+Example UI: Button "Manage Expenses" opens an expense form and summary table.
+
+- Customer Management:
+Manage Customer Data: Add, edit, delete customer records (assuming a customers table with customer_id, name, email, phone).
+
+View Customer Activity: See purchase history linked to sales.
+
+Example UI: Button "Manage Customers" displays a customer list and edit form.
+
+- System-Wide Reports:
+Generate Reports: View comprehensive reports on users, sales, expenses, and inventory.
+
+Example UI: Button "View Reports" opens a panel with options for different report types.
+
+- Dashboard Features:
+UI: AdminDashboard includes buttons: "Manage Users", "Manage Products", "Manage Sales", "Manage Expenses", "Manage Customers", "View Reports", "Logout".
+
+Welcome Message: "Welcome, Admin: [username]" (via UserSession.getUsername()).
+
+Access: Unrestricted access to all data and actions.
+
+## Manager
+The Manager role has intermediate access, focusing on operational management and reporting, but cannot manage users or perform system-wide administrative tasks.
+- Sales Management:
+Create Sales: Record new sales transactions (insert into sales table).
+
+View Sales: Access sales records, filtered to their team or department if applicable.
+
+Update Sales: Modify pending sales (e.g., correct quantities).
+
+Example UI: Button "Manage Sales" shows a form to add sales and a JTable for viewing/editing.
+
+- Expense Management:
+Submit Expenses: Create expense records (insert into expenses table).
+
+View Expenses: See expense history, limited to their submissions or team.
+
+Request Approval: Submit expenses for Admin approval.
+
+Example UI: Button "Manage Expenses" opens an expense entry form and history table.
+
+- Customer Management:
+Add/Edit Customers: Create or update customer records (insert/update customers table).
+
+View Customers: Access customer details for sales interactions.
+
+Example UI: Button "Manage Customers" shows a customer form and list.
+
+- Limited Reporting:
+Sales Reports: Generate reports on sales performance (e.g., total sales, top products).
+
+Expense Reports: View expense summaries for their team.
+
+Example UI: Button "View Reports" offers sales and expense report options.
+
+- Inventory Monitoring:
+View Products: See product details and stock levels (read-only access to products table).
+
+Request Stock Updates: Notify Admins for restocking (no direct updates).
+
+Example UI: Button "View Inventory" displays a JTable of products.
+
+- Dashboard Features:
+UI: ManagerDashboard includes buttons: "Manage Sales", "Manage Expenses", "Manage Customers", "View Reports", "View Inventory", "Logout".
+
+Welcome Message: "Welcome, Manager: [username]".
+
+Access: Limited to operational tasks, no user management or full product control.
+
+## Employee
+The Employee role has the most restricted access, focusing on task execution and limited data updates, with no management or reporting capabilities.
+- Task Management:
+View Assigned Tasks: Access tasks (assuming a tasks table with task_id, description, assigned_to, status).
+
+Update Task Status: Mark tasks as completed or in progress (update tasks table).
+
+Example UI: Button "View Tasks" shows a JTable of assigned tasks with status dropdowns.
+
+- Customer Updates:
+Update Customer Info: Edit specific customer details (e.g., contact info in customers table).
+
+View Customers: See customer details for assigned accounts (read-only for most fields).
+
+Example UI: Button "Update Customers" opens a form for editing assigned customers.
+
+- Sales Support:
+View Sales: See sales records they’re involved in (read-only access to sales table).
+
+Record Customer Interactions: Log interactions linked to sales or customers.
+
+Example UI: Button "View Sales" displays a filtered JTable of sales.
+
+- Limited Product Access:
+View Products: Access product details for sales or customer queries (read-only products table).
+
+Example UI: Button "View Products" shows a product list.
+
+- Dashboard Features:
+UI: EmployeeDashboard includes buttons: "View Tasks", "Update Customers", "View Sales", "View Products", "Logout".
+
+Welcome Message: "Welcome, Employee: [username]".
+
+Access: Restricted to task execution and limited data updates, no management or reporting.
