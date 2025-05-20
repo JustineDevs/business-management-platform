@@ -1,3 +1,5 @@
+# Requirements:
+## Netbeans Apache IDE
 # Project Title: Business Management Platform (BizPlatform)
 - Objective
 > Develop a desktop-based, fully responsive Business Management Platform to manage core business operations such as inventory, sales, customers, employees, finances, and reporting, with an advanced UI and modern features.
